@@ -73,6 +73,10 @@ Mock or Stub for a unit test
 
 ---
 
+[Silly example time](https://bl.ocks.org/jasonm23/bf6cb763a8ebea9187ba3f4104a0e4c3)
+
+---
+
 Let's write a swift stub
 
 ---
