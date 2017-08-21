@@ -100,3 +100,138 @@ Writing test doubles by hand is tedious
 ---
 
 https://github.com/Brightify/Cuckoo
+
+--- 
+
+example code
+
+```
+
+
+import Quick
+import Nimble
+
+public class CalculatorSpec: QuickSpec {
+    override public func spec(){
+        var subject: Calculator!
+
+        describe("Calculator"){
+            beforeEach {
+                subject = Calculator()
+            }
+
+            it("adds numbers"){
+                expect(adder.add(1,2)).to(equal(3))
+            }
+        }
+    }
+}
+
+/// v1
+public class Calculator: NSObject {
+    func add(_ first: Double, _ second: Double) -> Double {
+        return first + second
+    }
+}
+
+// with injection
+public class CalculatorSpec: QuickSpec {
+    override public func spec(){
+        var subject: Calculator!
+        var adder: AdderStub!
+
+        describe("Calculator"){
+            beforeEach {
+                let injector: BSInjector & BSBinder
+                injector = Blindside.injector(withModules: []) as! BSInjector & BSBinder
+                adder = AdderStub()
+                injector.bind(AdderProtocol.self, toInstance: adder)
+                subject = Calculator()
+            }
+
+            it("adds numbers"){
+                expect(adder.add(1,2)).to(equal(3))
+            }
+        }
+    }
+}
+
+public class AdderStub : AdderProtocol {
+    func add(_ first: Double, _ second: Double) -> Double {
+        return 3
+    }
+}
+
+// Mock v1
+public class AdderMock : AdderProtocol {
+    var addWasCalled = false
+
+    func add(_ first: Double, _ second: Double) -> Double {
+        addWasCalled = true
+        return 3
+    }
+}
+
+// Mock v2
+public class AdderMock : AdderProtocol {
+    var addWasCalled = false
+
+    var addWasCalledWithFirst = 0.0
+    var addWasCalledWithSecond = 0.0
+
+    func add(_ first: Double, _ second: Double) -> Double {
+        addWasCalled = true
+        addWasCalledWithFirst = first
+        addWasCalledWithSecond = second
+        return 3
+    }
+}
+
+
+public class AdderSpy : Adder {
+    var addWasCalled = false
+    var addWasCalledWithFirst = 0.0
+    var addWasCalledWithSecond = 0.0
+
+    override func add(_ first: Double, _ second: Double) -> Double {
+        addWasCalled = true
+        addWasCalledWithFirst = first
+        addWasCalledWithSecond = second
+        return super.add(first, second)
+    }
+}
+
+public class Adder : AdderProtocol {
+    func add(_ first: Double, _ second: Double) -> Double {
+        return first + second
+    }
+}
+
+/// v1
+// public class Calculator: NSObject {
+//     func add(_ first: Double, _ second: Double) -> Double {
+//         return first + second
+//     }
+// }
+
+public class Calculator: NSObject {
+    var adder: AdderProtocol! // <-- an adder strategy
+
+    override public class func bsProperties() -> BSPropertySet {
+        let propertySet = BSPropertySet.init(with: self,
+                                             propertyNamesArray: [
+                                                "adder" // <- let blindside provide via property injection
+            ])
+        return propertySet
+    }
+
+    func add(_ first: Double, _ second: Double) -> Double {
+        return adder.add(first, second) // <- use the adder strategy
+    }
+}
+
+// For speed, we'll pretend we already have an adder spec.
+
+// Blindside is required, but we won't dig into the setup of blindside... (let's assume it's already configured)
+
+```
