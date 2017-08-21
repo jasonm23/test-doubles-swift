@@ -8,6 +8,8 @@ We have to hand roll test doubles
 
 ---
 
+Test Doubles
+
 - Fakes
 - Stubs
 - Mocks
@@ -21,8 +23,7 @@ We have to hand roll test doubles
 - Hardware devices
 - System clock 
 
-etc.
-
+We won't look at these today!
 ---
 
 # Stubs
@@ -37,10 +38,10 @@ Returns preset results
 
 # Mocks
 
-Glorified stubs that record;
+Glorified stubs:
 
-- Calls (boolean or a count)
-- Arguments sent
+- Record Calls (boolean or a count)
+- Record Arguments sent
 
 ---
 
@@ -50,9 +51,25 @@ Mock methods sometimes do their own assertions when called
 
 ---
 
+Stubs and Mocks allow us to _**Tell don't Ask**_
+
+---
+
 # Spies
 
 Like a Mock that's been attached to the actual implementation
+
+---
+
+Careful when using Spies...!
+
+---
+
+Only use for a sociable test
+
+---
+
+Mock or Stub for a unit test
 
 ---
 
