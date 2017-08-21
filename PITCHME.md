@@ -81,7 +81,15 @@ Mock or Stub for a unit test
 
 ---
 
-Let's write a swift stub
+Obviously `func add` should be provided by an Adder class...
+
+---
+
+[Let's specifiy this dependency in our CalculatorSpec](https://bl.ocks.org/jasonm23/2892e0bb43b2545c2fbfdee7bd405dd5)
+
+---
+
+[So we'll need an Adder stub...]()
 
 ---
 
