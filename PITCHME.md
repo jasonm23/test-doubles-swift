@@ -78,21 +78,30 @@ Let's write a swift stub
 ---
 
 ```
-code on this line
-mode code
+extension APTimelinePresenter {
+    func moreFeatures(_ string: String) -> String {
+        return "String"
+    }
+}
 ```
 ---
 
 ```swift
-code on this line
-mode code
+extension APTimelinePresenter {
+    func moreFeatures(_ string: String) -> String {
+        return "String"
+    }
+}
 ```
 
 
 ---
 
-    code on this line
-    more code...
+    extension APTimelinePresenter {
+        func moreFeatures(_ string: String) -> String {
+            return "String"
+        }
+    }
 
 ---
 
