@@ -77,6 +77,25 @@ Let's write a swift stub
 
 ---
 
+```
+code on this line
+mode code
+```
+---
+
+```swift
+code on this line
+mode code
+```
+
+
+---
+
+    code on this line
+    more code...
+
+---
+
 Let's write a swift mock
 
 --- 
