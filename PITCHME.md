@@ -75,17 +75,6 @@ Mock or Stub for a unit test
 
 Let's write a swift stub
 
----
-
-```
-extension APTimelinePresenter {
-    func moreFeatures(_ string: String) -> String {
-        return "String"
-    }
-}
-```
----
-
 ```swift
 extension APTimelinePresenter {
     func moreFeatures(_ string: String) -> String {
@@ -93,17 +82,6 @@ extension APTimelinePresenter {
     }
 }
 ```
-
-
----
-
-    extension APTimelinePresenter {
-        func moreFeatures(_ string: String) -> String {
-            return "String"
-        }
-    }
-
----
 
 Let's write a swift mock
 
