@@ -75,13 +75,7 @@ Mock or Stub for a unit test
 
 Let's write a swift stub
 
-```swift
-extension APTimelinePresenter {
-    func moreFeatures(_ string: String) -> String {
-        return "String"
-    }
-}
-```
+---
 
 Let's write a swift mock
 
@@ -105,8 +99,7 @@ https://github.com/Brightify/Cuckoo
 
 example code
 
-```
-
+```swift
 
 import Quick
 import Nimble
