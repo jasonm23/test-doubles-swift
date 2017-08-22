@@ -115,20 +115,20 @@ Mock or Stub for a unit test
 
 Writing test doubles by hand is instructive
 
---- 
+---
 
-Writing test doubles by hand is tedious
+(Uncle) Bob Martin encourages hand written test doubles
 
 ---
 
-We could use Cuckoo...
+Implementations of classes start as the mock or stub, the system grows from them
 
 ---
 
-It can generate mocks for Swift at compile time...
+Test doubles we build by hand can be more communicative than their generated counterparts
 
 ---
 
-https://github.com/Brightify/Cuckoo
+For me they are fun to write, and give a greater sense of certainty that an interface is sound.
 
-
+---
