@@ -81,7 +81,11 @@ Mock or Stub for a unit test
 
 ---
 
-Obviously `func add` should be provided by an Adder class...
+`func add` can be provided by an Adder class
+
+---
+
+(sorry! needed a really simple example!)
 
 ---
 
@@ -89,15 +93,23 @@ Obviously `func add` should be provided by an Adder class...
 
 ---
 
-[So we'll need an Adder stub...]()
+[So we'll need an Adder stub...](https://bl.ocks.org/jasonm23/3900afe81f05fb0a6ac886026ab71473)
 
 ---
 
-Let's write a swift mock
+[Let's convert the Adder stub into a Mock](https://bl.ocks.org/jasonm23/c8614d73d7bb020b8840d20dd5db5c1b)
 
---- 
+---
 
-Let's write a swift spy
+[Let's write our Adder ... Test first](https://bl.ocks.org/jasonm23/115de906730a32b04b224ff8b369ddb2)
+
+---
+
+[And pass that test with a real implementation of Adder](https://bl.ocks.org/jasonm23/7cfd45d68e61c68a1b464c7f66b709a8)
+
+---
+
+[Let's test our Calculator and Adder together in a _sociable_ test using a Spy...](https://bl.ocks.org/jasonm23/6436745510ae40228b3db10c70920349)
 
 ---
 
